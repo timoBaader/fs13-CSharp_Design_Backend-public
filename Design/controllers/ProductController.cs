@@ -1,15 +1,13 @@
-using model;
-
 public class ProductController
 {
-    private Db db;
-    public ProductController(Db db)
+    private Database Db;
+    public ProductController(Database db)
     {
-        this.db = db;
+        this.Db = db;
     }
     public Product? GetProduct(Guid id)
     {
-        var result = db.productDb.FirstOrDefault(item => item.ProductId == id);
+        var result = Db.ProductDb.FirstOrDefault(item => item.ProductId == id);
         if (result is null)
         {
             Console.WriteLine($"Product with id {id} not found");
